@@ -1,0 +1,47 @@
+{% include head.html %}
+
+{% include header.html %}
+
+
+        <div id="main" class="main-content" role="main">
+
+            <section class="usa-banner banner-small">
+                <div class="usa-grid">
+
+                    <div class="usa-banner-content">
+                        <h1>
+                            {{ page.title }}
+                        </h1>
+                        <h2 class="usa-font-lead">
+                        </h2>
+                    </div>
+
+                </div>
+            </section>
+
+             <div class="usa-grid">
+                <div class="usa-width-three-fourths">
+                {{ content }}
+            </div>
+
+            <div class="usa-grid">
+
+                {% for initiative in site.initiatives %}
+
+                <a href="{{ initiative.url | prepend: site.baseurl }}" class="usa-width-one-third initiative-block">
+                    <h3>{{ initiative.title }}</h3>
+                </a>
+
+                {% cycle '', '', '</div><div class="usa-grid">' %}
+
+                {% endfor %}
+
+                <a href="{{ site.baseurl }}/contact" class="usa-width-one-third initiative-block">
+                    <h3>+ Add An Initiative</h3>
+                </a>
+
+            </div>
+
+        </div>
+
+{% include footer.html %}
